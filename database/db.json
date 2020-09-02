@@ -1,0 +1,28 @@
+{
+  "videos": [
+    {
+      "id": 1,
+      "videoId": "OCkbJNcddD8",
+      "image": "https://img.youtube.com/vi/OCkbJNcddD8/0.jpg",
+      "favorite": 1
+    },
+    {
+      "id": 2,
+      "videoId": "BTX8dK5D_ps",
+      "image": "https://img.youtube.com/vi/BTX8dK5D_ps/0.jpg",
+      "favorite": 0
+    },
+    {
+      "videoId": "AU4Nct1lEVU",
+      "image": "https://img.youtube.com/vi/AU4Nct1lEVU/0.jpg",
+      "id": 3,
+      "favorite": 1
+    },
+    {
+      "videoId": "Xc5n49aEhwc",
+      "image": "https://img.youtube.com/vi/Xc5n49aEhwc/0.jpg",
+      "id": 4,
+      "favorite": 0
+    }
+  ]
+}

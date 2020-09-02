@@ -1,0 +1,17 @@
+
+
+GET http://localhost:3000/videos
+
+###
+
+GET http://localhost:3000/videos?favorite=1
+
+###
+
+POST http://localhost:3000/videos
+content-type: application/json
+
+{
+    "videoId": "Xc5n49aEhwc",
+    "image": "https://img.youtube.com/vi/Xc5n49aEhwc/0.jpg"
+}
