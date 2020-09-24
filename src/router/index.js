@@ -1,23 +1,33 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
+
+import Recents from "../views/Recents.vue";
+import Favorites from "../views/Favorites.vue";
+import AddVideo from "../views/AddVideo.vue";
+import SingleVideo from "../views/SingleVideo.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
-    name: "Home",
-    component: Home
+    name: "Recents",
+    component: Recents
   },
   {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue")
+    path: "/favorites",
+    name: "Favorites",
+    component: Favorites
+  },
+  {
+    path: "/add-video",
+    name: "AddVideo",
+    component: AddVideo
+  },
+  {
+    path: "/video/:videoId",
+    name: "SingleVideo",
+    component: SingleVideo
   }
 ];
 
@@ -26,5 +36,17 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 });
+
+
+router.beforeEach((to, from, next) => {
+  let authorized = true;
+  if (to.fullPath === '/add-video' && !authorized) {
+    alert("You are not authorized to add video");
+    next("/");
+  } else {
+    next();
+  }
+});
+
 
 export default router;

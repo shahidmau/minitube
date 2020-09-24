@@ -3,46 +3,43 @@
     <v-main>
       <!-- Provides the application the proper gutter -->
       <v-container fluid>
-
-        <Recents v-if="activeComponent === 'recents'" />
-        <Favorites v-if="activeComponent === 'favorite'" />
-        <Add v-if="activeComponent === 'add'" />
-
+        <router-view></router-view>
       </v-container>
     </v-main>
 
-    <v-bottom-navigation :value="activeBtn" color="purple lighten-1" class="pt-2">
-      <v-btn @click="activeComponent='recents'">
+    <v-bottom-navigation
+      :value="activeBtn"
+      color="purple lighten-1"
+      class="pt-2"
+    >
+      <v-btn @click="goto('/')">
         <span>Recents</span>
         <v-icon>mdi-history</v-icon>
       </v-btn>
 
-      <v-btn @click="activeComponent='favorite'">
+      <v-btn @click="goto('/favorites')">
         <span>Favorites</span>
         <v-icon>mdi-heart</v-icon>
       </v-btn>
 
-      <v-btn @click="activeComponent='add'">
+      <v-btn @click="goto('/add-video')">
         <span>Add</span>
         <v-icon>mdi-plus</v-icon>
       </v-btn>
     </v-bottom-navigation>
-
   </v-app>
 </template>
 
 
 <script>
-
-import Recents from "@/components/Recents.vue";
-import Favorites from "@/components/Favorites.vue";
-import Add from "@/components/Add.vue";
-
 export default {
-  components: {
-    Recents,
-    Favorites,
-    Add
+  components: {},
+  methods: {
+    goto(path) {
+      if (path != this.$route.fullPath) {
+        this.$router.push(path);
+      }
+    }
   },
   data() {
     return {
